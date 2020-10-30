@@ -34,5 +34,5 @@ class csf::install inherits csf {
   csf::config { 'TESTING': value => '0' }
 
   # make sure puppet masters are always accessible
-  csf::ipv4::output { '8140': require => Exec['csf-install'], }
+  csf::allow { 'tcp|out|d=8140': require => Exec['csf-install'], }
 }
